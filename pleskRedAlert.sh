@@ -54,7 +54,7 @@ cat /var/log/secure |grep -i "ftp" > ./$REDALERTDIR/proftpd.redalert.txt
 cat /var/log/secure |grep -i "ftp" |grep -i "Login successful" > ./$REDALERTDIR/successful_proftpd.redalert.txt
 
 # Accessi riusciti proftpd da ip sospetto
-cat /var/log/secure |grep -i "ftp" |grep -i "Login successful" |grep -i "$IPSOSPETTO" > ./$REDALERTDIR/successful_proftpd.redalert.txt
+cat /var/log/secure |grep -i "ftp" |grep -i "Login successful" |grep -i "$IPSOSPETTO" > ./$REDALERTDIR/successful_intrusion_proftpd.redalert.txt
 
 
 ######### ACCESSI WEBMAIL
