@@ -69,11 +69,11 @@ cat /var/log/mail.log |grep -i "$IPSOSPETTO" |grep -i "$DATASOSPETTA" |grep -i "
 # Filtro tutto e faccio i sommari dei dati estrapolati
 for file in $REDALERTDIR/*.redalert.txt
 do
-	echo "$file\n\n" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
-	cat $file | grep -i $IPSOSPETTO >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
+	echo "$file\\n\\n" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
+	cat $file | grep -i "$IPSOSPETTO" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
 	
-	echo "$file\n\n" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
-	cat $file | grep -i $MAILSOSPETTA >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
+	echo "$file\\n\\n" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
+	cat $file | grep -i "$MAILSOSPETTA" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
 done
 
 # netstat con nomi host
