@@ -45,6 +45,18 @@ cat /var/log/secure |grep -i "Accepted password" |grep -i "$DATASOSPETTA" > ./$R
 cat /var/log/secure |grep -i "Accepted password" |grep -i "$IPSOSPETTO" |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/successful_intrusion_detection.redalert.txt
 
 
+######### PROFTPD
+
+# Tentativi di accesso proftpd 
+cat /var/log/secure |grep -i "ftp" > ./$REDALERTDIR/proftpd.redalert.txt
+
+# Accessi riusciti proftpd
+cat /var/log/secure |grep -i "ftp" |grep -i "Login successful" > ./$REDALERTDIR/successful_proftpd.redalert.txt
+
+# Accessi riusciti proftpd da ip sospetto
+cat /var/log/secure |grep -i "ftp" |grep -i "Login successful" |grep -i "$IPSOSPETTO" > ./$REDALERTDIR/successful_proftpd.redalert.txt
+
+
 ######### ACCESSI WEBMAIL
 
 # Accessi webmail falliti
