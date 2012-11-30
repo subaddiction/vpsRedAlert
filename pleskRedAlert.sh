@@ -74,10 +74,10 @@ cat /var/log/psa-horde/psa-horde.log |grep -i "$MAILSOSPETTA" |grep -i "$DATASOS
 # Filtro tutto e faccio i sommari dei dati estrapolati
 for file in $REDALERTDIR/*.redalert.txt
 do
-	echo "$file\\n\\n" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
+	echo "########## $file ##########" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
 	cat $file | grep -i "$IPSOSPETTO" >> ./$REDALERTDIR/$SUMMARIESDIR/IPSOSPETTO.redalert.log
 	
-	echo "$file\\n\\n" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
+	echo "########## $file ##########" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
 	cat $file | grep -i "$MAILSOSPETTA" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
 done
 
@@ -88,4 +88,4 @@ netstat -a --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
 netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
 
 
-chmod -R 775 $REDALERTDIR
+chmod -R 777 $REDALERTDIR
