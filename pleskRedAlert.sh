@@ -69,6 +69,14 @@ cat /var/log/psa-horde/psa-horde.log |grep -i "$IPSOSPETTO" |grep -i "$DATASOSPE
 cat /var/log/psa-horde/psa-horde.log |grep -i "$MAILSOSPETTA" |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/webmail_MAILSOSPETTA.redalert.txt
 
 
+######### MAIL LOG
+
+# Log qmail
+cat /usr/local/psa/var/log/maillog |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/maillog.redalert.txt
+
+# Log qmail processate
+cat /usr/local/psa/var/log/maillog.processed |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/maillog.processed.redalert.txt
+
 ######### REPORTS SUMMARIES
 
 # Filtro tutto e faccio i sommari dei dati estrapolati
