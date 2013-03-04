@@ -95,5 +95,38 @@ netstat -a --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
 # netstat con indirizzi numerici
 netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
 
+######### MODIFIED FILES
+
+# *.php modificati negli ultimi 30 giorni
+find /var/www/vhosts/ -mtime -30 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.all.txt
+
+# *.php modificati nell'ultima settimana
+find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.all.txt
+
+# *.php modificati nell'ultimo giorno
+find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.all.txt
+
+
+
+# *.php modificati negli ultimi 30 giorni
+find /var/www/vhosts/ -mtime -30 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.php.txt
+
+# *.php modificati nell'ultima settimana
+find /var/www/vhosts/ -mtime -7 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.php.txt
+
+# *.php modificati nell'ultimo giorno
+find /var/www/vhosts/ -mtime -1 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.php.txt
+
+
+
+# *.js modificati negli ultimi 30 giorni
+find /var/www/vhosts/ -mtime -30 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.php.txt
+
+# *.js modificati nell'ultima settimana
+find /var/www/vhosts/ -mtime -7 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.php.txt
+
+# *.js modificati nell'ultimo giorno
+find /var/www/vhosts/ -mtime -1 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.php.txt
+
 
 chmod -R 777 $REDALERTDIR
