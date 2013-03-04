@@ -97,13 +97,13 @@ netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.
 
 ######### MODIFIED FILES
 
-# *.php modificati negli ultimi 30 giorni
+# files in /var/www/vhosts modificati negli ultimi 30 giorni
 find /var/www/vhosts/ -mtime -30 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.all.txt
 
-# *.php modificati nell'ultima settimana
+# files in /var/www/vhosts modificati nell'ultima settimana
 find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.all.txt
 
-# *.php modificati nell'ultimo giorno
+# files in /var/www/vhosts modificati nell'ultimo giorno
 find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.all.txt
 
 
