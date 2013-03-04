@@ -101,10 +101,10 @@ netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.
 find /var/www/vhosts/ -mtime -30 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.all.txt
 
 # files in /var/www/vhosts modificati nell'ultima settimana
-find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.all.txt
+find /var/www/vhosts/ -mtime -7 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.all.txt
 
 # files in /var/www/vhosts modificati nell'ultimo giorno
-find /var/www/vhosts/ -mtime > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.all.txt
+find /var/www/vhosts/ -mtime -1 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.all.txt
 
 
 
