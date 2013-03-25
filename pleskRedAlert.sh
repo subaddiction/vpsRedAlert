@@ -128,5 +128,12 @@ find /var/www/vhosts/ -mtime -7 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modi
 # *.js modificati nell'ultimo giorno
 find /var/www/vhosts/ -mtime -1 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.php.txt
 
+# Access log di tutti i domini virtuali
+find /var/www/vhosts -name "access_log" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/$SUMMARIESDIR/virtual_domains_access.log
+find /var/www/vhosts -name "access_log.processed" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/$SUMMARIESDIR/virtual_domains_access.processed.log
+
+# Error log di tutti i domini virtuali
+find /var/www/vhosts -name "error_log" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > virtual_domains_error.log
+
 
 chmod -R 777 $REDALERTDIR
