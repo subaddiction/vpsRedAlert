@@ -133,7 +133,7 @@ find /var/www/vhosts -name "access_log" -print0 | xargs -0 cat |grep -i "$DATASO
 find /var/www/vhosts -name "access_log.processed" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/$SUMMARIESDIR/virtual_domains_access.processed.log
 
 # Error log di tutti i domini virtuali
-find /var/www/vhosts -name "error_log" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > virtual_domains_error.log
+find /var/www/vhosts -name "error_log" -print0 | xargs -0 cat |grep -i "$DATASOSPETTA" > ./$REDALERTDIR/$SUMMARIESDIR/virtual_domains_error.log
 
 
 chmod -R 777 $REDALERTDIR
