@@ -90,10 +90,13 @@ do
 done
 
 # netstat con nomi host
-netstat -a --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
+netstat -ap --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
 
 # netstat con indirizzi numerici
-netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
+netstat -anp --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
+
+# processi in esecuzione in formato human-readable
+ps -e u > ./$REDALERTDIR/$SUMMARIESDIR/processes.redalert.log
 
 ######### MODIFIED FILES
 
