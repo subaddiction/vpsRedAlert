@@ -76,10 +76,47 @@ do
 	cat $file | grep -i "$MAILSOSPETTA" >> ./$REDALERTDIR/$SUMMARIESDIR/MAILSOSPETTA.redalert.log
 done
 
+
 # netstat con nomi host
-netstat -a --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
+netstat -ap --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_hosts.redalert.log
 
 # netstat con indirizzi numerici
-netstat -an --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
+netstat -anp --tcp --udp > ./$REDALERTDIR/$SUMMARIESDIR/netstat_numeric.redalert.log
+
+# processi in esecuzione in formato human-readable
+ps -e u > ./$REDALERTDIR/$SUMMARIESDIR/processes.redalert.log
+
+######### MODIFIED FILES
+
+# files in /var/www modificati negli ultimi 30 giorni
+find /var/www -mtime -30 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.all.txt
+
+# files in /var/www modificati nell'ultima settimana
+find /var/www -mtime -7 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.all.txt
+
+# files in /var/www modificati nell'ultimo giorno
+find /var/www -mtime -1 > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.all.txt
+
+
+
+# *.php modificati negli ultimi 30 giorni
+find /var/www/ -mtime -30 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.php.txt
+
+# *.php modificati nell'ultima settimana
+find /var/www/ -mtime -7 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.php.txt
+
+# *.php modificati nell'ultimo giorno
+find /var/www/ -mtime -1 -name "*.php" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.php.txt
+
+
+
+# *.js modificati negli ultimi 30 giorni
+find /var/www -mtime -30 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.month.php.txt
+
+# *.js modificati nell'ultima settimana
+find /var/www -mtime -7 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.week.php.txt
+
+# *.js modificati nell'ultimo giorno
+find /var/www -mtime -1 -name "*.js" > ./$REDALERTDIR/$SUMMARIESDIR/modified.last.day.php.txt
 
 chmod -R 777 $REDALERTDIR
